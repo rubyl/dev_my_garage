@@ -1,0 +1,29 @@
+<!--<div>This is the map view.</div>-->
+
+<!--<ng-map center="[40.74, -74.18]"></ng-map>-->
+
+
+<div map-lazy-load="https://maps.google.com/maps/api/js">
+  <ng-map center="{{garageSale.address}}" zoom="16"></ng-map>
+  <div class="garage-sale">
+    <h1>{{garageSale.address}}</h1>
+    <div class="photos">
+      <span class="photo" data-ng-repeat="photo in garageSale.photos">
+        <img data-ng-src="{{photo.url}}" />
+        <div>{{photo.description}}</div>
+      </span>
+    </div>
+    <div class="products">
+      <div class="product" data-ng-repeat="product in garageSale.products">
+        <h1>{{product.name}} - {{product.price}}</h1>
+        <div class="photos">
+          <div class="photo" data-ng-repeat="photo in product.photos">
+            <img data-ng-src="{{photo.url}}" />
+            <div>{{photo.description}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
